@@ -19,7 +19,7 @@
                 <items>
                     <ColumnListItem type="Active" id="item0">
                         <cells>
-                            <ObjectIdentifier id="obj_colProdName" title="{ProductName}" text="{ProductID}"/>
+                            <ObjectIdentifier id="obj_colProdName" title="{ProductName}" text="Product ID: {ProductID}"/>
                             <Text id="txt_suppID" text="{SupplierID}"/>
                             <ObjectIdentifier id="obj_colPrice" title="{UnitPrice}" text="{QuantityPerUnit}"/>
                         </cells>
