@@ -1,34 +1,16 @@
-var record = [
-  {
-    Name: "Gibo",
-    Age: 16,
-    SkillSet: [{ Skill: "SAP UI5" }, { Skill: "SAP HANA" }],
-  },
-  {
-    Name: "Patrick",
-    Age: 22,
-    SkillSet: [
-      { Skill: "SAP UI5" },
-      { Skill: "SAP HANA" },
-      { Skill: "SAP ABAP" },
-    ],
-  },
-  {
-    Name: "MJ",
-    Age: 24,
-    SkillSet: [{ Skill: "SAP HANA" }],
-  },
-];
-
-var mostSkilled = record[0];
-
-// Loop and compare each record
-for (var i = 1; i < record.length; i++) {
-  if (record[i].SkillSet.length > mostSkilled.SkillSet.length) {
-    mostSkilled = record[i];
-  }
+var color = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+var o = ["th", "st", "nd", "rd"];
+ 
+for (var i = 0; i < color.length; i++){
+    var position = i + 1;
+    var suffix = "th";
+    if (position === 1) {
+        suffix = o[1];
+    } else if (position === 2) {
+        suffix = o[2];
+    }else if (position === 3) {
+        suffix = o[3];
+    }
+ 
+    console.log(position + suffix + " choice is " + color[i] + ".");
 }
-
-// Display most skilled in record
-console.log("Name: " + mostSkilled.Name);
-console.log("Age: " + mostSkilled.Age);
