@@ -1,0 +1,51 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" controllerName="sapips.training.odata.controller.Main">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel xmlns="sap.m" width="auto" expandable="false" expanded="true" id="panel0" backgroundDesign="Transparent">
+                <headerToolbar>
+                    <Toolbar id="toolbar1" design="Transparent">
+                        <Title id="title0" text="{i18n>txtProducts}" />
+                    </Toolbar>
+                </headerToolbar>
+                <content>
+                    <Text text="{i18n>txtRangeProd}" id="text5"/>
+                </content>
+            </Panel>
+
+
+            <Table noDataText="{i18n>tblNoData}" id="tbl_products" items="{path: '/Products', sorter: {path: 'ProductName', descending: false},
+                filters: [{ path: 'Discontinued', operator: 'EQ', value1: false}]}">
+                <items>
+                    <ColumnListItem type="Active" id="item0">
+                        <cells>
+                            <ObjectIdentifier id="obj_colProdName" title="{ProductName}" text="{ProductID}"/>
+                            <Text id="txt_suppID" text="{SupplierID}"/>
+                            <ObjectIdentifier id="obj_colPrice" title="{UnitPrice}" text="{QuantityPerUnit}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+                <columns >
+                    <Column id="col_prodName" sortIndicator="None">
+                        <header>
+                            <Label text="{i18n>lblProducts}" id="lbl_prodName"/>
+                        </header>
+                    </Column>
+
+                    <Column id="col_suppID">
+                        <header>
+                            <Label text="{i18n>lblSuppID}" id="lbl_suppID"/>
+                        </header>
+                    </Column>
+
+                    <Column id="col_price">
+                        <header>
+                            <Label text="{i18n>lblPrice}" id="lbl_price"/>
+                        </header>
+                    </Column>
+                </columns>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

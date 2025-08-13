@@ -1,0 +1,28 @@
+{
+  "Products": [
+    {
+      "ProductID": "S005",
+      "ProductName": "iPhone 16 Plus 128GB Black",
+      "SupplierID": "Apple",
+      "CategoryID": "iPhone",
+      "QuantityPerUnit": "128",
+      "UnitPrice": "62990",
+      "UnitsInStock": "128",
+      "UnitsOnOrder": "0",
+      "ReorderLevel": "0",
+      "Discontinued": "false"
+    },
+    {
+      "ProductID": "S006",
+      "ProductName": "Samsung Galaxy S24 Ultra 256GB Phantom Black",
+      "SupplierID": "Samsung",
+      "CategoryID": "Galaxy",
+      "QuantityPerUnit": "256",
+      "UnitPrice": "58990",
+      "UnitsInStock": "75",
+      "UnitsOnOrder": "10",
+      "ReorderLevel": "20",
+      "Discontinued": "false"
+    }
+  ]
+}

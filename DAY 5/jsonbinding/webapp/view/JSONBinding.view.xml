@@ -1,0 +1,116 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" controllerName="sapips.training.jsonbinding.controller.JSONBinding">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <!-- Panel for Data Binding Basics -->
+            <Panel xmlns="sap.m" width="auto" id="panel0" headerText="Data Binding Basics" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <Toolbar id="toolbar1">
+                        <Title text="{i18n>Ttl_dataBindBasics}" id="ttl_pan1"/>
+                        <!-- <ToolbarSpacer/>
+                        <Button icon="sap-icon://settings"/> -->
+                    </Toolbar>
+
+                </headerToolbar>
+                <content>
+                    <!-- <Text text="Panel Content" id="text0"/> -->
+                    <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form"
+                        xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="form_dataBind">
+                        <sap.ui.layout.form:content>
+                            <!-- <sap.ui.core:Title text="Title" id="title0"/> -->
+                            <Label text="{i18n>Lbl_eid}" id="lbl_eid"/>
+                            <Input id="inp_eid" width="40%" type="Text" required="false" value="{userData>/EID}" enabled="{userData>/Enabled}"/>
+
+                            <Label text="{i18n>Lbl_enabled}" id="lbl_enable"/>
+                            <CheckBox id="cb_enable"
+                                selected="{userData>/Enabled}"/>
+                        </sap.ui.layout.form:content>
+
+                    </sap.ui.layout.form:SimpleForm>
+
+                </content>
+            </Panel>
+
+            <!-- Panel for Address Details-->
+            <Panel xmlns="sap.m" width="auto" id="panel0_1754632123312" headerText="Address Details" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <Toolbar id="toolbar1_1754632123312">
+                        <Title text="{i18n>Ttl_addrDetails}" id="ttl_addrDetails"/>
+                    </Toolbar>
+
+                </headerToolbar>
+                <content>
+                    <!-- <Text text="Panel Content" id="text0"/> -->
+                    <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form"
+                        xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="form_panelContent">
+                        <sap.ui.layout.form:content>
+                            <!-- <sap.ui.core:Title text="Title" id="title0"/> -->
+                            <Label text="{i18n>Lbl_address}" id="lbl_address"/>
+                            <Text text="{userData>/Address/Street}, {userData>/Address/Zip}, {userData>/Address/City}, {userData>/Address/Country}" class="sapUiSmallMarginBottom" id="txt_address"/>
+                            <Link text="{i18n>Lbl_sndEmail}" href="{ parts: [ { path: 'userData>/EID' }, { path: 'i18n>domain' },{ path: 'i18n>mailSubject' },{ path: 'i18n>mailBody' } ], formatter: '.formatter.formatMail' }," id="link_sndEmail"/>
+
+                            <Label text="{i18n>Lbl_salesAmnt}" class="sapUiSmallMarginBegin" id="lbl_salesAmnt"/>
+                            <Input id="inp_salesAmnt" type="Number" required="false" class="sapUiSmallMarginBegin" value="{ parts: [ {path: 'userData>/SalesAmount'}, {path: 'userData>/CurrencyCode'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" description="{userData>/CurrencyCode}" />
+                        </sap.ui.layout.form:content>
+
+                    </sap.ui.layout.form:SimpleForm>
+
+                </content>
+            </Panel>
+
+            <!-- Panel for Aggregation Binding -->
+            <Panel width="auto" id="aggregationBindingPanel" headerText="Aggregation Binding" class="sapUiResponsiveMargin">
+                <List id="list0" items="{ProductsModel>/Products}" mode="SingleSelectMaster" selectionChange="ProductsModel">
+                    <items>
+                        <ObjectListItem id="objectListItem0" title="{ProductsModel>ProductName}" number="{ parts: [ {path: 'ProductsModel>UnitPrice'}, {path: 'ProductsModel>/CurrencyCode'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false}}" numberUnit="{userData>/CurrencyCode}">
+                            <attributes>
+                                <ObjectAttribute id="objectAttribute0" title="{i18n>Obj_stockOnHand}" text="{ProductsModel>QuantityPerUnit}"/>
+                                <ObjectAttribute id="objectAttribute1" title="{i18n>Obj_currStockVal}" text="{ parts: [ { path: 'ProductsModel>UnitPrice' }, { path: 'ProductsModel>/CurrencyCode' } ], formatter: '.formatter.formatStockValue' }"/>
+                            </attributes>
+                        </ObjectListItem>
+                    </items>
+                </List>
+            </Panel>
+
+            <!-- Panel Product Details -->
+            <Panel width="auto" id="productDetailsPanel" headerText="Product Details" class="sapUiResponsiveMargin">
+                <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form"
+                    xmlns:sap.ui.core="sap.ui.core" editable="false" layout="ResponsiveGridLayout" id="sForm_prodDet">
+                    <sap.ui.layout.form:content>
+                        <Label text="{i18n>Lbl_prodId}" id="lbl_"/>
+                        <Input width="100%" id="inp_prodId" value="{ProductsModel>ProductID}" editable="false"/>
+                       
+                        <Label text="{i18n>Lbl_prodName}" id="lbl_prodName"/>
+                        <Input width="100%" id="inp_prodName" value="{ProductsModel>ProductName}" editable="false"/>
+                       
+                        <Label text="{i18n>Lbl_suppId}" id="lbl_suppid"/>
+                        <Input width="100%" id="inp_suppId" value="{ProductsModel>SupplierID}" editable="false"/>
+                       
+                        <Label text="{i18n>Lbl_ctgryId}" id="lbl_ctgryId"/>
+                        <Input width="100%" id="inp_ctrgyId" value="{ProductsModel>CategoryID}" editable="false"/>
+                       
+                        <Label text="{i18n>Lbl_qtyPerUnit}" id="lbl_qtyPerUnit"/>
+                        <Input width="100%" id="inp_qtyPerUnit" value="{ProductsModel>QuantityPerUnit}" editable="false"/>
+                       
+                        <Label text="{i18n>Lbl_unitPrice}" id="lbl_unitPrice"/>
+                        <Input width="100%" id="inp_unitPrice" value="{ProductsModel>UnitPrice}" editable="false"/>
+                        
+                        <Label text="{i18n>Lbl_unitStock}" id="lbl_unitStock"/>
+                        <Input width="100%" id="inp_unitStock" value="{ProductsModel>UnitsInStock}" editable="false"/>
+                       
+                        <Label text="{i18n>Lbl_unitOrder}" id="lbl_unitOrder"/>
+                        <Input width="100%" id="inp_unitOrder" value="{ProductsModel>UnitsOnOrder}" editable="false"/>
+                       
+                        <Label text="{i18n>Lbl_reorderLvl}" id="lbl_reorderLvl"/>
+                        <Input width="100%" id="inp_reorderLvl" value="{ProductsModel>ReorderLevel}" editable="false"/>
+                        
+                        <Label text="{i18n>Lbl_discon}" id="lbl_discon"/>
+                        <Input width="100%" id="inp_discon" value="{ProductsModel>Discontinued}" editable="false"/>
+                    
+                    </sap.ui.layout.form:content>
+                </sap.ui.layout.form:SimpleForm>
+            </Panel>
+
+        </content>
+    </Page>
+</mvc:View>
