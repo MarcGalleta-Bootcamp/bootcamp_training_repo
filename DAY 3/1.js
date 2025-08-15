@@ -5,7 +5,7 @@ function numberToWords(num) {
   var words = "";
 
   if( num < 1 || num > 999){
-    console.log("Number Out of range")
+    return "Number Out of range";
   }
   else {
   var hundreds = (num - ( num % 100 )) / 100;
