@@ -1,4 +1,5 @@
 var height = 5;
+
 //Print X structure
 for (let i = 0; i < height; i++) {
   let row = "";
@@ -9,5 +10,6 @@ for (let i = 0; i < height; i++) {
       row += " ";
     }
   }
+  // Print result
   console.log(row);
 }
