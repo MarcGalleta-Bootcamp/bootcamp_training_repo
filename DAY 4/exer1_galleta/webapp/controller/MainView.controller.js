@@ -3,13 +3,14 @@ sap.ui.define([
     "sap/m/MessageToast"
 ], function (Controller, MessageToast) {
     "use strict";
- 
+
     return Controller.extend("com.training.exer1galleta.controller.MainView", {
         onInit: function () {
-			this._Page = this.byId("page");
+            this._Page = this.byId("page");
             this._Page.setFloatingFooter(!this._Page.getFloatingFooter());
-			},
- 
+        },
+
+        //Change mode of payment base on user
         onChangeMOP: function (oEvent) {
             var sSelectedKey = oEvent.getParameter("selectedItem").getProperty("key");
             // For Gcash phone number
@@ -22,7 +23,7 @@ sap.ui.define([
             if (sSelectedKey === "COD") {
                 sap.m.MessageToast.show("Cash on Delivery");
             }
- 
+
             if (sSelectedKey === "GCASH") {
                 // show the mobile field
                 sap.m.MessageToast.show("Gcash");
@@ -43,22 +44,23 @@ sap.ui.define([
                 oCrdtInput.setVisible(false);
             }
         },
- 
+        // Validations for user inputs
         onPressCheckout: function () {
             var oInputFNameValue = this.getView().byId("idInptFName").getValue();
-            var oInputLNameValue = this.getView().byId("idLblLName").getValue();
- 
+            var oInputLNameValue = this.getView().byId("idInptLName").getValue();
+
             // Check if first name and last name is blank
             if (oInputFNameValue === "" && oInputLNameValue === "") {
                 sap.m.MessageToast.show("Required Field is blank");
             }
         },
- 
+
+        // Toast i18n>addButtonMsg whne onAddItem is called
         onAddItem: function () {
             var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
             var sMsg = oTextBundle.getText("addButtonMsg");
-            this.fnDisplayMsg(sMsg);
-        }
- 
+            sap.m.MessageToast.show(sMsg);
+
+        },
     });
 });
