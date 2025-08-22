@@ -3,7 +3,6 @@
     <Dialog id="idProductDialog" title="{i18n>prodDialogTitle}">
         <beginButton>
             <Button id="idButtonCloseDialog" text="{i18n>dialogCloseButtonText}" press="onCloseDialog"/>
-
         </beginButton>
     </Dialog>
 

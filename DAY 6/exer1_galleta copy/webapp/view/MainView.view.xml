@@ -9,8 +9,10 @@
         <f:content>
           <Label id="idLblFName" text="{i18n>firstNameLbl}" />
           <Input id="idInptFName" value="" />
+
           <Label id="idLblLName" text="{i18n>LastNameLbl}" />
           <Input id="idInptLName" value="" />
+
           <Label id="idLblMOP" text="{i18n>mopLbl}" />
           <Select id="idSelMOP" forceSelection="false" change="onChangeMOP">
             <items>
@@ -19,56 +21,18 @@
               <core:Item id="idItmGCash" text="{i18n>gcashLbl}" key="GCASH"/>
             </items>
           </Select>
+
           <Label id="idLblCrdtDetails" text="{i18n>crdtCardLbl}" visible="false"/>
           <Input id="idInputCrdt" value="" visible="false"/>
+
           <Label id="idLblPhone" text="{i18n>mobileNumLbl}" visible="false"/>
           <Input id="idInputPhone" value="" visible="false"/>
         </f:content>
-
       </f:SimpleForm>
+      
       <core:Fragment fragmentName="com.training.exer1galleta.fragment.ShoppingCart" type="XML" />
     </VBox>
-    
-      <!-- <Table id="idTableSCart" inset="false">
-        <headerToolbar>
-          <OverflowToolbar id="idOFT">
-            <content>
-              <Title id="idTableTitleSCart" text="{i18n>shopCartLbl}"/>
-              <ToolbarSpacer id="idTSpacer"/>
-              <Button id="idBtnAddItems" icon="sap-icon://cart-4" tooltip="Add to Cart" press="onAddItem"/>
-            </content>
-          </OverflowToolbar>
-        </headerToolbar>
-        <columns>
-          <Column id="idCol1">
-            <Text id="idColText1" text="{i18n>itemLbl}" />
-          </Column>
-          <Column id="idCol2">
-            <Text id="idColText2" text="{i18n>qntyLbl}" />
-          </Column>
-          <Column id="idCol3">
-            <Text id="idColText3" text="{i18n>priceLbl}" />
-          </Column>
-        </columns>
-        <items>
-          <ColumnListItem id="idColListItem1" vAlign="Middle">
-            <cells>
-              <Text id="idText1" text="{i18n>ip14Lbl}" />
-              <Text id="idText2" text="{i18n>ipQtyLbl}" />
-              <Text id="idText3" text="{i18n>ipPrcLbl}" />
-            </cells>
-          </ColumnListItem>
-          <ColumnListItem id="idColListItem2" vAlign="Middle">
-            <cells>
-              <Text id="idText4" text="{i18n>lvSpeedyLbl}" />
-              <Text id="idText5" text="{i18n>bagQtyLbl}" />
-              <Text id="idText6" text="{i18n>bagPrcLbl}" />
-            </cells>
-          </ColumnListItem>
-        </items>
-      </Table> -->
 
-    
     <footer>
       <OverflowToolbar id="idOFTFooter">
         <ToolbarSpacer id="idTSpacerFooter"/>

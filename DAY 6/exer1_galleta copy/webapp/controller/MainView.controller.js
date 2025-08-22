@@ -86,13 +86,10 @@ sap.ui.define([
                 this.oDialog = this.loadFragment({
                     name: "com.training.exer1galleta.fragment.ProductDialog"
                 });
-
             }
             this.oDialog.then(function (oDialog) {
                 oDialog.open();
             });
-
-
         },
 
         onCloseDialog: function () {
