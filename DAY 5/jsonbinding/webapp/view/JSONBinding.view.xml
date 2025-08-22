@@ -7,17 +7,13 @@
                 <headerToolbar>
                     <Toolbar id="toolbar1">
                         <Title text="{i18n>Ttl_dataBindBasics}" id="ttl_pan1"/>
-                        <!-- <ToolbarSpacer/>
-                        <Button icon="sap-icon://settings"/> -->
                     </Toolbar>
-
                 </headerToolbar>
+
                 <content>
-                    <!-- <Text text="Panel Content" id="text0"/> -->
                     <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form"
                         xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="form_dataBind">
                         <sap.ui.layout.form:content>
-                            <!-- <sap.ui.core:Title text="Title" id="title0"/> -->
                             <Label text="{i18n>Lbl_eid}" id="lbl_eid"/>
                             <Input id="inp_eid" width="40%" type="Text" required="false" value="{userData>/EID}" enabled="{userData>/Enabled}"/>
 
@@ -25,9 +21,7 @@
                             <CheckBox id="cb_enable"
                                 selected="{userData>/Enabled}"/>
                         </sap.ui.layout.form:content>
-
                     </sap.ui.layout.form:SimpleForm>
-
                 </content>
             </Panel>
 
@@ -37,24 +31,20 @@
                     <Toolbar id="toolbar1_1754632123312">
                         <Title text="{i18n>Ttl_addrDetails}" id="ttl_addrDetails"/>
                     </Toolbar>
-
                 </headerToolbar>
+
                 <content>
-                    <!-- <Text text="Panel Content" id="text0"/> -->
                     <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form"
                         xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="form_panelContent">
                         <sap.ui.layout.form:content>
-                            <!-- <sap.ui.core:Title text="Title" id="title0"/> -->
                             <Label text="{i18n>Lbl_address}" id="lbl_address"/>
                             <Text text="{userData>/Address/Street}, {userData>/Address/Zip}, {userData>/Address/City}, {userData>/Address/Country}" class="sapUiSmallMarginBottom" id="txt_address"/>
-                            <Link text="{i18n>Lbl_sndEmail}" href="{ parts: [ { path: 'userData>/EID' }, { path: 'i18n>domain' },{ path: 'i18n>mailSubject' },{ path: 'i18n>mailBody' } ], formatter: '.formatter.formatMail' }," id="link_sndEmail"/>
+                            <Link text="{i18n>Lbl_sndEmail}" href="{ parts: [ { path: 'userData>/EID' }, { path: 'i18n>domain' },{ path: 'i18n>mailSubject' },{ path: 'i18n>mailBody' } ], formatter: '.formatter.formatMail' }" id="link_sndEmail"/>
 
                             <Label text="{i18n>Lbl_salesAmnt}" class="sapUiSmallMarginBegin" id="lbl_salesAmnt"/>
-                            <Input id="inp_salesAmnt" type="Number" required="false" class="sapUiSmallMarginBegin" value="{ parts: [ {path: 'userData>/SalesAmount'}, {path: 'userData>/CurrencyCode'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" description="{userData>/CurrencyCode}" />
+                            <Input id="inp_salesAmnt" type="Text" maxLength="8" required="false" class="sapUiSmallMarginBegin" value="{ parts: [ {path: 'userData>/SalesAmount'}, {path: 'userData>/CurrencyCode'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" description="{userData>/CurrencyCode}" />
                         </sap.ui.layout.form:content>
-
                     </sap.ui.layout.form:SimpleForm>
-
                 </content>
             </Panel>
 
@@ -106,11 +96,9 @@
                         
                         <Label text="{i18n>Lbl_discon}" id="lbl_discon"/>
                         <Input width="100%" id="inp_discon" value="{ProductsModel>Discontinued}" editable="false"/>
-                    
                     </sap.ui.layout.form:content>
                 </sap.ui.layout.form:SimpleForm>
             </Panel>
-
         </content>
     </Page>
 </mvc:View>

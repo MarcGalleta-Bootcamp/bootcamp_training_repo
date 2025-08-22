@@ -20,7 +20,7 @@ sap.ui.define([
                         Zip: "2711",
                         Country: "Philippines"
                     },
-                    SalesAmount: 10000,
+                    SalesAmount: 0,
                     CurrencyCode: "USD"
                 };
 
@@ -42,10 +42,5 @@ sap.ui.define([
                     model: "ProductsModel"
                 })
             }
-
-
-            // handleEmailPress: function (evt) {
-            // 	URLHelper.triggerEmail(this._getVal(evt), "Info Request", false, false, false, true);
-            // },
         });
     });
